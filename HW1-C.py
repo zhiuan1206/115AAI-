@@ -1,1 +1,2 @@
-print("Hello world!\n"* 5, end="")
+n = int(input())
+print("Hello world!\n" * n, end="")
