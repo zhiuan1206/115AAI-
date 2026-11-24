@@ -1,13 +1,15 @@
 n = int(input())
-total = n
+original = n
 count = 0
 
-while total >= 10:
-    s = 0
-    for digit in str(total):
-        s += int(digit)
-    count += 1
-    total = s
-    print(f"Pass {count} : {total}")
+while n >= 10:
+    total = 0
 
-print(f"Digital Root of {n} : {total}")
+    for digit in str(n):
+        total += int(digit)
+
+    count += 1
+    print("Pass", count, ":", total)
+    n = total
+
+print("Digital Root of", original, ":", n)

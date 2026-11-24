@@ -1,17 +1,23 @@
-cipher = input().split()
+shift = list(map(int, input().split()))
 text = input()
 
 result = ""
+length = len(shift)
 
 for i in range(len(text)):
-    if text[i].isalpha():
-        shift = int(cipher[i % len(cipher)])
+    ch = text[i]
 
-        if text[i].isupper():
-            result += chr((ord(text[i]) - ord('A') - shift) % 26 + ord('A'))
-        else:
-            result += chr((ord(text[i]) - ord('a') - shift) % 26 + ord('a'))
+    if 'a' <= ch <= 'z':
+        j = i % length
+        new_ch = chr((ord(ch) - ord('a') - shift[j]) % 26 + ord('a'))
+        result += new_ch
+
+    elif 'A' <= ch <= 'Z':
+        j = i % length
+        new_ch = chr((ord(ch) - ord('A') - shift[j]) % 26 + ord('A'))
+        result += new_ch
+
     else:
-        result += text[i]
+        result += ch
 
 print(result)
